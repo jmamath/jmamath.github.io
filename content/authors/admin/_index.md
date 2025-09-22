@@ -39,9 +39,9 @@ profiles:
   - icon: brands/google-scholar
     url: https://scholar.google.com/citations?user=qdrePlgAAAAJ&hl=en
   # Link to a PDF of your resume/CV - upload it to `static/uploads/resume.pdf`
-  # - icon: academicons/cv
-  #   url: uploads/resume.pdf
-  #   label: Download my resume
+  - icon: academicons/cv
+    url: uploads/resume.pdf
+    label: Download my resume
 
 # Highlight the author in author lists? (true/false)
 highlight_name: true
