@@ -19,6 +19,7 @@ Reinforcement Learning from Human Feedback (RLHF) has emerged as the dominant pa
 ---
 
 ## 1. Scalability and Resource Constraints
+![Scalability and Resource Constraints of RLHF](scalability_issues.png)
 
 The economics of human feedback create an insurmountable ceiling for model alignment. As Casper et al. (2023) bluntly state: "The cost of obtaining human feedback is a major bottleneck for RLHF." This isn't merely an inconvenience, it's a fundamental constraint that shapes what's possible in alignment research.
 
@@ -30,26 +31,15 @@ The implications are stark: in a field where rapid experimentation is the engine
 
 The scalability problem intensifies dramatically as AI systems tackle increasingly complex domains. As Christiano et al. (2018) recognized early on, "if AI systems become much more capable than humans, it may be difficult for humans to supervise them", not because humans fundamentally lack the capacity to evaluate these outputs, but because the infrastructure required to assemble appropriate expertise becomes prohibitively expensive and slow.
 
-Consider the challenge of evaluating mathematical proofs, advanced scientific reasoning, or complex code implementations. These domains don't require just any human feedback—they require expert feedback from specialists with deep domain knowledge. Bowman et al. (2022) frame this as the central motivation for scalable oversight research: "As AI systems become more powerful, it will become increasingly difficult for humans to directly supervise them." But the difficulty isn't epistemic, it's logistical and economic.
+Consider the challenge of evaluating mathematical proofs, advanced scientific reasoning, or complex code implementations. These domains don't require just any human feedback, they require expert feedback from specialists with deep domain knowledge. Bowman et al. (2022) frame this as the central motivation for scalable oversight research: "As AI systems become more powerful, it will become increasingly difficult for humans to directly supervise them." The difficulty is logistical and economic.
 
 ---
 
-## 2. Human Feedback Quality Limitations
+## 2. Reward Model Limitations
 
-Even if we could solve the scalability problem—imagine unlimited budget, instant turnaround, and ready access to domain experts, we'd still confront a distinct issue: the intrinsic noise in human judgment. The quality challenge here isn't about capability or expertise, but about consistency and agreement.
+![Reward Model Limitations](reward_model_limitations.png)
 
-Multiple studies reveal troubling levels of disagreement among human annotators, even when evaluating the same outputs. Santurkar et al. (2023) document "significant disagreement between individual annotators" when assessing model responses, a finding echoed by Stiennon et al. (2022) in their work on summarization tasks. This isn't a mere calibration problem that can be fixed with better training protocols. As Casper et al. (2023) observe, "human preferences are often noisy and inconsistent. This can make it difficult to learn an accurate reward model." The signal we're trying to learn from is fundamentally corrupted by the subjectivity and variability inherent in human judgment.
-
-
-Christiano et al. (2018) recognized this challenge early, proposing amplification techniques specifically because "if AI systems become much more capable than humans, it may be difficult for humans to supervise them." Bowman et al. (2022) frame this as the central motivation for scalable oversight research: "As AI systems become more powerful, it will become increasingly difficult for humans to directly supervise them." The problem isn't just complexity, it's a fundamental mismatch between the sophistication of model outputs and human evaluative capabilities. As Casper et al. (2023) note, "humans may not be able to provide effective feedback on tasks that are too complex for them to understand."
-
-This supervision ceiling represents an existential challenge for RLHF. Unlike cost or speed constraints, which might be ameliorated through better infrastructure, the epistemic limits of human judgment impose a hard boundary on how far RLHF can take us toward superintelligent systems.
-
----
-
-## 3. Reward Model Limitations
-
-Even in an idealized scenario where human feedback is perfectly consistent, delivered by domain experts, and available in unlimited quantities, we'd still face a technical gauntlet when translating that feedback into the reward models that actually guide policy optimization. These models introduce their own failure modes, acting less like faithful representations of human values and more like adversarial targets waiting to be gamed.
+Setting aside for a moment the question of feedback quality and consistency, even in a hypothetical scenario where human feedback is perfectly consistent, delivered by domain experts, and available in unlimited quantities, we'd still face a technical gauntlet when translating that feedback into the reward models that actually guide policy optimization. These models introduce their own failure modes, acting less like faithful representations of human values and more like adversarial targets waiting to be gamed.
 
 The first vulnerability is reward hacking, a phenomenon so pervasive that Gao et al. (2022) identify it as "a fundamental problem that is likely to occur in any RLHF system." The core issue is elegantly simple and deeply problematic: reward models are merely proxies for what we actually want, and as Casper et al. (2023) observe, "the policy can learn to exploit the proxy to achieve a high reward without actually achieving the true objective."
 
@@ -61,25 +51,37 @@ This creates a vicious cycle. Casper et al. (2023) explain the mechanism: "The r
 
 The tragic irony is that the more successful our training process is at improving the policy, the less trustworthy our reward model becomes at evaluating it. We're chasing a moving target with an increasingly obsolete compass.
 
+
 ---
 
-## 4. Systemic and Governance Challenges
+## 3. Human Feedback Quality and Governance Limitations
 
-Beyond the technical obstacles lie thornier questions of values, representation, and adaptability. RLHF doesn't just face engineering challenges—it confronts fundamental questions about whose preferences should shape AI behavior and how systems should evolve after deployment.
+Even if we could solve the scalability problem, imagine unlimited budget, instant turnaround, and ready access to domain experts, we'd still confront two deeper issues at the heart of RLHF: the unreliability of human judgment itself and the thorny question of whose values we're optimizing for.
+
+### The Quality Problem: Inconsistent Human Judgment
+
+The quality challenge here isn't about capability or expertise, but about consistency and agreement. Multiple studies reveal troubling levels of disagreement among human annotators, even when evaluating the same outputs. Santurkar et al. (2023) document "significant disagreement between individual annotators" when assessing model responses, a finding echoed by Stiennon et al. (2022) in their work on summarization tasks. This isn't a mere calibration problem that can be fixed with better training protocols. As Casper et al. (2023) observe, "human preferences are often noisy and inconsistent. This can make it difficult to learn an accurate reward model." The signal we're trying to learn from is fundamentally corrupted by the subjectivity and variability inherent in human judgment.
+
+### The Representation Problem: Whose Values?
+
+Beyond the technical challenge of noisy feedback lie thornier questions of values, representation, and adaptability. RLHF doesn't just face engineering challenges, it confronts fundamental questions about whose preferences should shape AI behavior and how systems should evolve after deployment.
 
 The value alignment problem cuts deeper than most technical discussions acknowledge. Santurkar et al. (2023) put it starkly: "language models are not neutral and reflect the values of their creators." This isn't a bug that can be patched, it's an inherent feature of learning from human feedback. The preferences captured in reward models necessarily reflect the specific group of annotators who provided that feedback, and as Casper et al. (2023) observe, "the values of the people who provide the feedback are embedded in the reward model, and these values may not be representative of the values of society as a whole.". For instance, models like GPT-5 have been shown to pick stereotypical answers 76% of the time on the Indian Bias Evaluation Dataset (Indian-BhED), created by researchers at the University of Oxford to test sociocultural biases unique to India, such as caste.
 
 This creates a governance challenge that extends far beyond technical alignment. When we deploy RLHF-trained models at scale, we're effectively scaling the particular value judgments of a small, often demographically narrow group of annotators to billions of users across diverse cultural contexts. Ouyang et al. (2022) acknowledge this concern, noting the importance of ensuring "that the model is aligned with the values of the users, and that it does not generate harmful or offensive content"—but RLHF's static training paradigm makes this difficult to achieve in practice.
 
-Which brings us to the final limitation of our analysis: RLHF's temporal rigidity. As Casper et al. (2023) note, "RLHF is a one-shot process, and the model does not continue to learn from its mistakes after it has been deployed." Once training concludes, the model's alignment is frozen—incapable of adapting to evolving social norms, correcting systematic errors, or improving based on real-world deployment feedback. In a rapidly changing world where our understanding of desired AI behavior continues to evolve, this static approach to alignment looks increasingly inadequate.
+### The Adaptability Problem: Frozen in Time
 
-The combined effect of these limitations—value brittleness and temporal rigidity—means that RLHF systems are simultaneously overfit to specific annotator populations and unable to adapt as contexts change. It's a combination that undermines both the universality and the longevity of the alignment we achieve.
+RLHF's temporal rigidity compounds these challenges. As Casper et al. (2023) note, "RLHF is a one-shot process, and the model does not continue to learn from its mistakes after it has been deployed." Once training concludes, the model's alignment is frozen, incapable of adapting to evolving social norms, correcting systematic errors, or improving based on real-world deployment feedback. In a rapidly changing world where our understanding of desired AI behavior continues to evolve, this static approach to alignment looks increasingly inadequate.
+
+The combined effect of these limitations: noisy human judgments, narrow value representation, and temporal rigidity means that RLHF systems are simultaneously trained on unreliable signals, overfit to specific annotator populations, and unable to adapt as contexts change. It's a combination that undermines both the quality and the longevity of the alignment we achieve.
 
 ---
 
 ## The Path Forward: Synthetic Data Alignment
+![Human Feedback Quality and Governance Limitations](human_feedback_and_governance_challenges.png)
 
-These four categories of limitations—scalability constraints, human judgment quality, reward model failure modes, and systemic rigidity—collectively paint a picture of a paradigm reaching its natural boundaries. Each limitation alone would be cause for concern; together, they suggest that RLHF, despite its successes, cannot be the final answer to alignment.
+These three categories of limitations—scalability constraints, reward model vulnerabilities, and human judgment challenges—collectively paint a picture of a paradigm reaching its natural boundaries. Each limitation alone would be cause for concern; together, they suggest that RLHF, despite its successes, cannot be the final answer to alignment.
 
 The research community has begun responding with a new generation of approaches centered on synthetic data alignment. These methods directly address RLHF's core limitations by **generating training data at scale** without human resource bottlenecks, using **consistent AI judges** to eliminate annotation noise and provide uniform evaluation even in complex expert domains, maintaining **on-policy training** to prevent distribution drift, and enabling **continuous self-improvement** through iterative refinement.
 
