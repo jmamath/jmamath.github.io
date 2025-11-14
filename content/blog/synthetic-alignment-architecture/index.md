@@ -64,6 +64,8 @@ A more sophisticated strategy employs **instruction inversion**—generating pro
 
 The most ambitious approaches use **self-prompting**, where models generate their own training prompts. Dong et al. (2024) employ a self-prompt generator that creates diverse instructions guided by seed topics. Yuan et al. (2025) generate prompts from initial seed data, letting the model expand its own training curriculum. The empirical evidence suggests this diversity is crucial: Dong et al. note that "most of the improvement comes from the prompt diversity" rather than sophisticated response refinement. Self-prompting enables iterative methods to continuously explore new regions of the instruction space, preventing the homogeneity that would come from training on a fixed prompt set.
 
+<img src="prompt_generation_strategy.png" alt="Prompt Generation Strategy" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
+
 ---
 
 ### Factor 2: Response Sampling Strategy
@@ -76,6 +78,8 @@ More aggressive is **best-of-N selection**: generate N candidate responses and s
 
 A third strategy employs **ensemble generation**, creating variation by sampling from multiple models, model sizes, or prompting configurations. Kim et al. (2023) generate responses using various model sizes and few-shot configurations, creating natural diversity in the response distribution. Cui et al. (2024) take this to an extreme, using 17 different models to generate the responses in ULTRAFEEDBACK. Ensemble approaches trade orchestration complexity and computational cost for richer, more diverse training signals.
 
+<img src="response_sampling_strategy.png" alt="Response Sampling Strategy" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
+
 ---
 
 ### Factor 3: Actor-Judge-Refiner Configuration
@@ -85,6 +89,8 @@ A fundamental architectural question: should you use a single model wearing mult
 The **single model, multiple roles** approach has aesthetic and practical appeal. The same model generates responses, judges their quality, and potentially refines them based on critiques. Yuan et al. (2025) and Wu et al. (2024) exemplify this with their actor-judge-meta-judge configurations where one model performs all functions. Constitutional AI (Bai et al., 2022) uses the same model for generation and critique-and-revision. Kim et al. (2023) deploy a single model in RM-guided self-play. This approach is elegant and efficient—you're training one model to be competent across all functions rather than coordinating multiple models. But it demands genuine multi-capability: the model must excel at generation, evaluation, and refinement simultaneously.
 
 The alternative deploys **separate specialized models** for different functions. Cheng et al. (2025) maintain distinct actor M_t and refiner R_t models that evolve separately, M_t focusing on generating better aligned responses and R_t focusing on refining responses and providing judgment. Cui et al. (2024) designed UltraRM, a reward model trained with preference data obtained with GPT-4 as the role of LLM-as-a-Judge. Specialization allows each component to focus on its particular function without compromise, potentially reaching higher capability ceilings. The cost is increased training complexity: you must now coordinate multiple models, manage their separate training processes, and ensure they work together coherently. The question is whether specialization's benefits justify the additional complexity.
+
+<img src="actor_judge_refiner_configuration.png" alt="Actor-Judge-Refiner Configuration" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
 
 ---
 
@@ -104,6 +110,8 @@ Beyond refinement lies filtering: which preference pairs should actually be used
 
 More principled is **quality-based filtering** using learned RM either implicit or explicit. Dong et al. (2024) generate both original and refined responses for each prompt, keeping only pairs where the refined version scores higher according to automatic quality metrics. While this sounds similar to critique-and-revise, the distinction is subtle but important: critique-and-revise generates the refined response through an explicit critique step and includes that reasoning in the training data, whereas quality-based filtering simply generates alternative responses and filters them post-hoc based on quality scores without capturing the improvement reasoning. This ensures the preference signal represents genuine improvement rather than random variation. Methods also commonly filter low-confidence preference pairs where the reward model score difference is small, reducing noise in the training data. The approach is more adaptive than heuristics but requires a trustworthy quality estimator—if the quality metric itself is flawed, it propagates errors into training.
 
+<img src="response_refinement_filtering.png" alt="Response Refinement and Filtering" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
+
 ---
 
 ### Factor 5: Preference Signal Source and Training Implementation
@@ -119,6 +127,8 @@ The most ambitious approach is **self-judgment**: the model being trained genera
 The **emergent** approach (Yuan et al., 2025) uses the current policy checkpoint to judge, leveraging the implicit ability of the policy to be a rewarding model during DPO training (Rafailov et al., 2024). The **explicit training** approach (Wu et al., 2024; Cheng et al., 2025) trains judging capability alongside generation using dedicated training data for the judge role. The empirical verdict is clear: Wu et al. (2024) Meta-Rewarding Models outperforms Self-Rewarding Models Yuan et al. (2025) on comparable benchmarks, with the improvement attributed to explicit judge training rather than relying on emergent judging ability. Self-judgment enables powerful bootstrapping and co-evolution of generation and evaluation, but risks reinforcing biases or premature convergence if not carefully managed. Moreover, Self-Judgment methods can lead to responses with consistent high scores, which yield diminushing returns after 4 iterations.
 
 **Hybrid approaches** blend multiple sources to balance competing objectives. Constitutional AI (Bai et al., 2022) merges AI-generated harmlessness labels with human helpfulness labels, training a multi-objective reward model that navigates between safety and utility. The key insight cutting across all these approaches: judge identity (human principles, external model, self) is independent from training implementation (labels for RM training, labels for DPO, continuous online querying). Most methods use external or self-judgment for labeling, then either train an explicit RM in the RL paradigm or use direct optimization in the DPO paradigm.
+
+<img src="preference_signal_source.png" alt="Preference Signal Source and Training Implementation" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
 
 ---
 
@@ -142,6 +152,8 @@ Finally, Cheng et al. (2025) demonstrate **judgment explanations** where the ref
 
 The value proposition is clear: richer signals enable more nuanced learning and teach the reasoning behind judgments, not just which responses are better. But they require more sophisticated judge models and increase the complexity and cost of annotation. The question is whether the marginal improvement from fine-grained feedback justifies the added complexity.
 
+<img src="feedback_signal_nature.png" alt="Nature of the Feedback Signal" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
+
 ---
 
 ### Factor 7: On-Policy vs Offline Training
@@ -155,6 +167,8 @@ The **offline (static data)** approach generates all preference data once, upfro
 Within on-policy training, a secondary distinction emerges around update frequency. **Continuous updates** (Guo et al., 2024) update policy parameters after each preference pair or small batch, tightly interleaving data generation and training. This maintains the tightest possible distribution alignment but requires constant judge interaction, making it computationally demanding. **Batched iterations** offer a pragmatic compromise: the policy generates a batch of data, trains on it for multiple steps, then moves to the next iteration in discrete rounds. Yuan et al. (2025) use 3 iterations, Wu et al. (2024) use 4, Cheng et al. (2025) use 3, and Dong et al. (2024) use 4. This approach balances on-policy benefits with computational efficiency and enables convenient checkpointing between rounds.
 
 Most methods employ a **warm start** strategy, combining offline SFT on seed data before proceeding to on-policy alignment. Cheng et al. (2025) initialize both actor and refiner with GPT-4o-Mini data. Most iterative methods start with instruction-tuned models rather than raw base models. Warm starting accelerates convergence by giving the policy a reasonable starting point rather than beginning from scratch. The alternative **cold start** approach, beginning from a base model without task-specific initialization, is rare in practice—the convergence benefits of warm starting are too compelling to ignore.
+
+<img src="on_policy_vs_offline.png" alt="On-Policy vs Offline Training" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
 
 ---
 
@@ -195,6 +209,8 @@ Some clusters of work are highly comparable, sharing benchmarks and similar setu
 Other work is moderately comparable—different domains but similar principles. Bai et al. (2022), Kundu et al. (2023), and Shi et al. (2024) all focus on safety though they use different evaluation approaches. Cui et al. (2024) and other general chat alignment methods share enough commonality to draw useful comparisons despite evaluation differences.
 
 Some work has limited comparability: Yu et al.'s (2025) vision-language focus operates in a different modality entirely. Zweiger et al.'s (2025) meta-learning approach with limited evaluation sets represents more proof-of-concept than production system, however propose an interesting feedback signal. Papers evaluated primarily via human evaluation versus automated benchmarks resist direct comparison despite potential similarity in methods.
+
+<img src="evaluation_methodology.png" alt="Evaluation Methodology and Comparability" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
 
 ---
 
