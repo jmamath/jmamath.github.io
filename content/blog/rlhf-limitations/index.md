@@ -56,6 +56,8 @@ The tragic irony is that the more successful our training process is at improvin
 
 ## 3. Human Feedback Quality and Governance Limitations
 
+![Human Feedback Quality and Governance Limitations](human_feedback_and_governance_challenges.png)
+
 Even if we could solve the scalability problem, imagine unlimited budget, instant turnaround, and ready access to domain experts, we'd still confront two deeper issues at the heart of RLHF: the unreliability of human judgment itself and the thorny question of whose values we're optimizing for.
 
 ### The Quality Problem: Inconsistent Human Judgment
@@ -79,7 +81,6 @@ The combined effect of these limitations: noisy human judgments, narrow value re
 ---
 
 ## The Path Forward: Synthetic Data Alignment
-![Human Feedback Quality and Governance Limitations](human_feedback_and_governance_challenges.png)
 
 These three categories of limitations—scalability constraints, reward model vulnerabilities, and human judgment challenges—collectively paint a picture of a paradigm reaching its natural boundaries. Each limitation alone would be cause for concern; together, they suggest that RLHF, despite its successes, cannot be the final answer to alignment.
 
