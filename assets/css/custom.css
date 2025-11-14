@@ -1,18 +1,54 @@
-/* Force full color rendering for blog post images */
+/* Force full color rendering for blog post images - MAXIMUM OVERRIDE */
+
+/* Target all possible image containers */
+img,
 .article-container img,
 .prose img,
 article img,
-.page-body img {
+.page-body img,
+.markdown img,
+.content img,
+.page-content img,
+main img,
+.hb-docs img,
+.post img {
   filter: none !important;
   opacity: 1 !important;
   mix-blend-mode: normal !important;
   -webkit-filter: none !important;
+  -moz-filter: none !important;
+  -ms-filter: none !important;
+  -o-filter: none !important;
 }
 
-/* Ensure images in markdown content display properly */
-.markdown img,
-.content img {
+/* Dark mode specific overrides */
+[data-theme="dark"] img,
+.dark img,
+html[data-theme="dark"] img {
   filter: none !important;
   opacity: 1 !important;
+}
+
+/* Light mode specific overrides */
+[data-theme="light"] img,
+.light img,
+html[data-theme="light"] img {
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+/* System theme overrides */
+@media (prefers-color-scheme: dark) {
+  img {
+    filter: none !important;
+    opacity: 1 !important;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  img {
+    filter: none !important;
+    opacity: 1 !important;
+  }
 }
 

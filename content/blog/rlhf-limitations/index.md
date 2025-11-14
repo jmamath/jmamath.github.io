@@ -19,7 +19,8 @@ Reinforcement Learning from Human Feedback (RLHF) has emerged as the dominant pa
 ---
 
 ## 1. Scalability and Resource Constraints
-![Scalability and Resource Constraints of RLHF](scalability_issues.png)
+
+<img src="scalability_issues.png" alt="Scalability and Resource Constraints of RLHF" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
 
 The economics of human feedback create an insurmountable ceiling for model alignment. As Casper et al. (2023) bluntly state: "The cost of obtaining human feedback is a major bottleneck for RLHF." This isn't merely an inconvenience, it's a fundamental constraint that shapes what's possible in alignment research.
 
@@ -37,7 +38,7 @@ Consider the challenge of evaluating mathematical proofs, advanced scientific re
 
 ## 2. Reward Model Limitations
 
-![Reward Model Limitations](reward_model_limitations.png)
+<img src="reward_model_limitations.png" alt="Reward Model Limitations" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
 
 Setting aside for a moment the question of feedback quality and consistency, even in a hypothetical scenario where human feedback is perfectly consistent, delivered by domain experts, and available in unlimited quantities, we'd still face a technical gauntlet when translating that feedback into the reward models that actually guide policy optimization. These models introduce their own failure modes, acting less like faithful representations of human values and more like adversarial targets waiting to be gamed.
 
@@ -56,7 +57,7 @@ The tragic irony is that the more successful our training process is at improvin
 
 ## 3. Human Feedback Quality and Governance Limitations
 
-![Human Feedback Quality and Governance Limitations](human_feedback_and_governance_challenges.png)
+<img src="human_feedback_and_governance_challenges.png" alt="Human Feedback Quality and Governance Limitations" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
 
 Even if we could solve the scalability problem, imagine unlimited budget, instant turnaround, and ready access to domain experts, we'd still confront two deeper issues at the heart of RLHF: the unreliability of human judgment itself and the thorny question of whose values we're optimizing for.
 
