@@ -1,0 +1,18 @@
+/* Force full color rendering for blog post images */
+.article-container img,
+.prose img,
+article img,
+.page-body img {
+  filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+  -webkit-filter: none !important;
+}
+
+/* Ensure images in markdown content display properly */
+.markdown img,
+.content img {
+  filter: none !important;
+  opacity: 1 !important;
+}
+
