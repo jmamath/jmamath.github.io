@@ -204,19 +204,11 @@ Papers using similar initialization strategies (SFT on instruction data) are mor
 
 **A Comparability Map**
 
-The following table organizes synthetic alignment methods by their comparability level, showing which papers can be meaningfully compared and why:
+Some clusters of work are highly comparable, sharing benchmarks and similar setups. Yuan et al. (2025), Wu et al. (2024), and Dong et al. (2024) all use AlpacaEval 2.0 with iterative approaches and similar model families, enabling precise comparison of their different design choices. Cheng et al. (2025) explicitly compare against Yuan et al. and Wu et al. on IFEval, cleanly attributing their superior performance to tree-search refinement. Lee et al. (2024) conduct direct head-to-head comparisons against RLHF on summarization. Guo et al. (2024) pit online methods against offline DPO and RLAIF on TL;DR with the same judge, isolating the impact of on-policy training.
 
-| Comparability Level | Papers | Shared Elements | What Enables Comparison | Limitations |
-|-------------------|---------|-----------------|------------------------|-------------|
-| **Highly Comparable** | Yuan et al. (2025)<br>Wu et al. (2024)<br>Dong et al. (2024) | • AlpacaEval 2.0<br>• Iterative approaches<br>• Similar model families<br>• Arena-Hard (Wu & Dong) | Shared benchmarks enable precise attribution of improvements to specific design choices (e.g., explicit vs. emergent judge training) | None—direct comparison possible |
-| **Highly Comparable** | Cheng et al. (2025)<br>Yuan et al. (2025)<br>Wu et al. (2024) | • IFEval benchmark<br>• Iterative self-improvement<br>• Similar paradigms | Explicit head-to-head comparison cleanly attributes Cheng et al.'s superior performance to tree-search refinement specifically | None—controlled comparison |
-| **Highly Comparable** | Lee et al. (2024)<br>RLHF baseline | • TL;DR summarization<br>• Direct comparison | Head-to-head evaluation demonstrates synthetic feedback can match/exceed human feedback | None—direct comparison |
-| **Highly Comparable** | Guo et al. (2024)<br>Offline DPO<br>RLAIF | • TL;DR dataset<br>• Same judge model<br>• Controlled variables | Isolates impact of on-policy training through systematic comparison | None—controlled setup |
-| **Moderately Comparable** | Bai et al. (2022)<br>Kundu et al. (2023)<br>Shi et al. (2024) | • Safety focus<br>• Constitutional principles<br>• Similar paradigms | Shared domain (safety) allows conceptual comparison despite different evaluation approaches | Different evaluation metrics limit quantitative comparison |
-| **Moderately Comparable** | Cui et al. (2024)<br>Other general chat methods | • General alignment<br>• Similar objectives<br>• Overlapping techniques | Enough commonality for useful conceptual comparisons | Evaluation differences prevent precise quantitative comparison |
-| **Limited Comparability** | Yu et al. (2025) | • Vision-language modality<br>• Different task structure | Different modality (VL vs. text-only) | Cross-modal comparison not meaningful |
-| **Limited Comparability** | Zweiger et al. (2025) | • Meta-learning approach<br>• Limited evaluation set (8 samples)<br>• Test-time training | Proof-of-concept rather than production system; interesting feedback signal but different paradigm | Small-scale evaluation prevents comparison with production methods |
-| **Limited Comparability** | Papers using only human eval vs. only automated benchmarks | • Evaluation methodology mismatch | — | Different evaluation paradigms resist direct comparison despite potential method similarity |
+Other work is moderately comparable—different domains but similar principles. Bai et al. (2022), Kundu et al. (2023), and Shi et al. (2024) all focus on safety though they use different evaluation approaches. Cui et al. (2024) and other general chat alignment methods share enough commonality to draw useful comparisons despite evaluation differences.
+
+Some work has limited comparability: Yu et al.'s (2025) vision-language focus operates in a different modality entirely. Zweiger et al.'s (2025) meta-learning approach with limited evaluation sets represents more proof-of-concept than production system, however propose an interesting feedback signal. Papers evaluated primarily via human evaluation versus automated benchmarks resist direct comparison despite potential similarity in methods.
 
 ---
 
