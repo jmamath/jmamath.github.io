@@ -4,6 +4,10 @@ date: 2025-11-13
 summary: "Examining why RLHF faces fundamental limitations across scalability, human judgment quality, reward models, and governance that constrain the development of more capable AI systems."
 tags: ["AI", "RLHF", "Machine Learning", "Alignment", "Research"]
 authors: ["admin"]
+image:
+  filename: "thumbnail.png"
+  focal_point: "Center"
+  preview_only: false
 ---
 
 > **Part 1 of 4** in the series "From Human Feedback to Synthetic Alignment"

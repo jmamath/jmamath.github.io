@@ -4,6 +4,10 @@ date: 2025-11-13
 summary: "This four-part research series examines why RLHF faces fundamental limitations and how synthetic alignment methods are reshaping the field, distilling insights from 20+ recent papers into actionable guidance."
 tags: ["AI", "RLHF", "RLAIF", "Machine Learning", "Alignment", "Synthetic Data"]
 authors: ["admin"]
+image:
+  filename: "thumbnail.png"
+  focal_point: "Center"
+  preview_only: false
 ---
 
 > **Executive Summary** — This four-part research series examines why Reinforcement Learning from Human Feedback (RLHF) faces fundamental limitations and how synthetic alignment methods are reshaping the field. For technical leaders evaluating alignment strategies, this overview distills key insights from 20+ recent papers into actionable guidance.

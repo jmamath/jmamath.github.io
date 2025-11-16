@@ -4,6 +4,10 @@ date: 2025-11-13
 summary: "The verdict is in. We deliver a scorecard on synthetic alignment, assessing which of RLHF's limitations have been solved and which remain, backed by six key empirical insights."
 tags: ["AI", "RLAIF", "Machine Learning", "Alignment", "Research", "Evaluation"]
 authors: ["admin"]
+image:
+  filename: "thumbnail.png"
+  focal_point: "Center"
+  preview_only: false
 ---
 
 > **Part 3 of 4** in the series "From Human Feedback to Synthetic Alignment"

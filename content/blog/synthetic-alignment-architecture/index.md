@@ -4,6 +4,10 @@ date: 2025-11-13
 summary: "Mapping the design space of synthetic alignment methods—two foundational paradigms and eight critical design factors that shape implementation choices and trade-offs."
 tags: ["AI", "RLAIF", "Machine Learning", "Alignment", "Architecture", "DPO"]
 authors: ["admin"]
+image:
+  filename: "thumbnail.png"
+  focal_point: "Center"
+  preview_only: false
 ---
 
 > **Part 2 of 4** in the series "From Human Feedback to Synthetic Alignment"

@@ -4,6 +4,10 @@ date: 2025-11-13
 summary: "Exploring five critical research frontiers: meta-alignment, post-deployment adaptation, breaking the iteration ceiling, judge bias auditing, and co-evolution dynamics."
 tags: ["AI", "RLAIF", "Machine Learning", "Alignment", "Research", "Future Work"]
 authors: ["admin"]
+image:
+  filename: "thumbnail.png"
+  focal_point: "Center"
+  preview_only: false
 ---
 
 > **Part 4 of 4** in the series "From Human Feedback to Synthetic Alignment"
