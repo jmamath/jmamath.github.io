@@ -24,21 +24,19 @@ image:
 
 Reinforcement Learning from Human Feedback transformed language model alignment, powering systems like ChatGPT, Claude and Gemini. Yet beneath its success lie insurmountable constraints that increasingly limit what's possible in AI alignment. These aren't engineering challenges awaiting better infrastructure—they're structural limitations inherent to learning from human feedback at scale.
 
-### Four Fundamental Limitations
+### Three Fundamental Limitations
 
 **1. Scalability and Resource Constraints**
 
 The economics are stark: training InstructGPT required human annotation at costs that Ouyang et al. (2022) acknowledge as "a major bottleneck." Expert feedback for complex domains—mathematical proofs, advanced scientific reasoning, sophisticated code multiplies these costs exponentially. Where general annotators cost tens of dollars per hour, domain experts cost hundreds, with weeks of scheduling delays. As AI systems tackle increasingly complex tasks, the infrastructure required to assemble appropriate expertise becomes prohibitively expensive and slow.
 
-**2. Human Judgment Quality**
-
 Even with unlimited resources, human feedback suffers from intrinsic noise. Multiple studies reveal troubling disagreement among annotators evaluating identical outputs. This isn't a calibration problem, it's fundamental subjectivity corrupting the signal reward models learn from. The temporal dimension compounds the issue: comprehensive human evaluation requires weeks to coordinate annotators and achieve statistical significance, strangling the iteration cycles that drive algorithmic progress.
 
-**3. Reward Model Vulnerabilities**
+**2. Reward Model Vulnerabilities**
 
 Reward models introduce their own failure modes. Reward hacking, where policies exploit proxy metrics without achieving true objectives is "a fundamental problem likely to occur in any RLHF system" (Gao et al., 2022). Worse, reward models become "stale" as policies evolve: the distribution of policy outputs drifts from the distribution the reward model was trained on, causing escalating inaccuracy. We're chasing a moving target with an increasingly obsolete compass.
 
-**4. Systemic Governance Challenges**
+**3. Systemic Governance and Temporal Rigidity**
 
 RLHF systems embed the values of specific annotator populations, often demographically narrow, then scale these judgments to billions of users across diverse cultural contexts. Models like ChatGPT show 76% stereotypical responses on the Indian Bias Evaluation Dataset. Additionally, RLHF's temporal rigidity means deployed models cannot adapt to evolving norms or correct systematic errors based on real-world feedback.
 
