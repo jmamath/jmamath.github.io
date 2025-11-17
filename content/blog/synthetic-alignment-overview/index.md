@@ -81,13 +81,13 @@ Mapping RLHF's limitations to synthetic alignment's solutions reveals decisive p
 
 | RLHF Limitation | Status | Key Improvements | Remaining Challenges |
 |----------------|--------|------------------|---------------------|
-| **Scalability & Cost** | ✅ Solved | Automated preference generation eliminates human annotation bottleneck | None—the economic constraint is decisively addressed |
-| **Research Velocity** | ✅ Solved | Iteration cycles reduced from months to days | None—temporal constraints eliminated |
-| **Human Inconsistency** | ⚠️ Partially Solved | Perfectly consistent AI judge evaluations eliminate annotator disagreement | Judge models introduce systematic biases (vs. random noise) |
-| **Reward Hacking** | ⚠️ Partially Addressed | DPO methods eliminate explicit reward model exploitation | Gaming shifts to judge scoring functions; policy still optimizes proxies |
-| **Distribution Shift** | ✅ Solved (at computational cost) | On-policy training maintains data-policy alignment | Requires constant data regeneration—high computational expense |
-| **Value Alignment** | ⚠️ Improved Transparency | Constitutional principles make values explicit and modifiable | Value authorship problem remains; cross-cultural representation unsolved |
-| **Post-Deployment Adaptation** | ⚠️ Easier to Iterate | Friction reduced for running new alignment iterations | Deployed models still frozen; no continual learning from users |
+| **Scalability & Cost** | ✅ Solved | Automated preference generation eliminates human annotation bottleneck; methods generate tens of thousands of preference pairs without human cost | None—the economic constraint is decisively addressed |
+| **Research Velocity** | ✅ Solved | Iteration cycles reduced from months to days; rapid algorithmic exploration enabled | None—temporal constraints eliminated |
+| **Distribution Shift** | ✅ Solved (at computational cost) | On-policy training maintains data-policy alignment; demonstrably more stable than offline methods | Requires constant data regeneration and judge interaction—high computational expense |
+| **Reward Hacking** | ⚠️ Partially Addressed | DPO methods eliminate explicit reward model exploitation; reduced staleness | Gaming shifts to judge scoring functions; self-judgment creates feedback loops; policy still optimizes proxies |
+| **Human Inconsistency** | ⚠️ Partially Solved | Perfectly consistent AI judge evaluations eliminate annotator disagreement and noise | Judge models introduce systematic biases (vs. random noise); correctness ≠ consistency |
+| **Value Alignment & Representation** | ⚠️ Improved Transparency | Constitutional principles make values explicit and modifiable; fine-grained control over optimization targets | Value authorship problem remains; cross-cultural representation unsolved; single value set scaled globally |
+| **Post-Deployment Adaptation** | ⚠️ Easier to Iterate | Friction reduced for running new alignment iterations; no human coordination needed | Deployed models still frozen; no continual learning from user interactions; paradigm remains training-time vs. deployment-time |
 
 ### Six Empirical Insights
 
