@@ -50,21 +50,13 @@ highlight_name: true
 website: ""
 ---
 
-I'm a Research Engineer at Google with a passion for building and improving cutting-edge generative models. My primary focus is on synthetic data, an area I've explored extensively through my work in both industry and academia. I believe synthetic data is a critical tool for scaling model capabilities and bridging performance gaps, particularly for specialized tasks.
+I build synthetic data infrastructure for training frontier language models at scale.
 
-#### From Theory to Impact: Scaling Gemini with Synthetic Data
+As a Research Engineer at Google, I led the data generation pipeline that enhanced Gemini's multilingual instruction-following capabilities across 25 languages. This work focuses on creating high-quality synthetic instruction-response pairs that bridge the gap between research methods and production systems.
 
-At Google, I've had the opportunity to apply this expertise to some of the company's most advanced large language models. From September 2023 to March 2025, I led the development of a data generation pipeline designed to create high-quality instruction-response pairs for fine-tuning large language models. This work was a direct contribution to Gemini, and the resulting data delivered an average performance boost of 0.03 across 25 languages on a standard multilingual evaluation set.
+My expertise in synthetic data generation extends across the LLM training lifecycle: instruction-following (SFT), preference-based alignment, and increasingly, pretraining corpus design. I recently published a comprehensive research series on synthetic alignment, synthesizing insights from 20+ papers into actionable guidance for technical leaders evaluating RLHF alternatives.
 
-- I owned this project from end to end, creating a systematic experimentation flywheel to measure and validate progress.
-- By executing over 50 fine-tuning experiments, I analyzed results to validate hypotheses and ensure performance gains were stable on next-generation models.
-- I discovered and implemented a robust intervention that significantly improved data quality by leveraging more powerful models and advanced prompting techniques.
-- To ensure the pipeline’s continued relevance for cutting-edge model development, I adapted it to work seamlessly with the latest models.
+I'm focused on synthetic data because the economics are inevitable: as frontier models approach human expert performance, the marginal cost of human feedback increasingly exceeds its marginal value. The next competitive advantage lies in architecting generation pipelines that maintain quality while eliminating human bottlenecks—a shift that's already reshaping how leading labs approach training.
 
-My approach to building these high-impact data pipelines is directly informed by my doctoral research, where I developed a first-principles understanding of how generated data can be used to probe and predict model behavior in novel situations.
-Foundations: Pioneering "Stress Tests" for Model Reliability
-
-#### Foundations: Pioneering "Stress Tests" for Model Reliability
-My PhD thesis, "Study of Data Augmentation for the Robustness of Deep Neural Networks," investigated how models perform under dataset shift—when deployment data differs from training data. A key finding was that synthetic data could be used not just to make models more robust, but more importantly, to generate targeted "stress tests" at the evaluation stage.
-
-The outcome was a new methodology for using cheap, generated data to systematically probe model behavior and accurately estimate performance drops on new, unlabeled domains. This insight has practical applications, such as guiding expensive labeling efforts toward areas of maximal impact. This foundational research equipped me with a unique perspective on using synthetic data to build more reliable and trustworthy systems—a perspective that continues to drive my work on frontier models today.
+This builds on my doctoral research at Sorbonne University, where I developed methods for using synthetic data to predict model behavior under dataset shift—insights that directly inform how I design production pipelines today.
+If you're evaluating synthetic data strategies for production systems, I'd welcome the conversation.
