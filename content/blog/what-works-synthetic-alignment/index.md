@@ -22,7 +22,7 @@ image:
 
 ## The Verdict: A Scorecard for Synthetic Alignment
 
-We began this series by identifying the core limitations of RLHF. Now, after exploring the architecture of synthetic alignment, we can return to those original problems and assess the progress. The scorecard below provides a high-level verdict, which we will explore in detail in the subsequent analysis.
+We began this series in **[Part 1](/blog/rlhf-limitations/)** by identifying the core limitations of RLHF. Now, after exploring the architecture of synthetic alignment, we can return to those original problems and assess the progress. The scorecard below provides a high-level verdict, which we will explore in detail in the subsequent analysis.
 
 | RLHF Limitation | Status | Key Improvements | Remaining Challenges |
 |----------------|--------|------------------|---------------------|

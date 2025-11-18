@@ -79,7 +79,7 @@ Mapping RLHF's limitations to synthetic alignment's solutions reveals decisive p
 
 | RLHF Limitation | Status | Key Improvements | Remaining Challenges |
 |----------------|--------|------------------|---------------------|
-| **Scalability & Cost** | ✅ Solved | Automated preference generation eliminates human annotation bottleneck; methods generate tens of thousands of preference pairs without human cost | None—the economic constraint is decisively addressed |
+| **Scalability & Cost** | ✅ Solved | Automated preference generation eliminates the human annotation bottleneck, delivering over an **11x cost reduction** ([see the full analysis](/blog/rlaif-economics/)). Methods generate tens of thousands of preference pairs for a fraction of the cost. | None—the economic constraint is decisively addressed |
 | **Research Velocity** | ✅ Solved | Iteration cycles reduced from months to days; rapid algorithmic exploration enabled | None—temporal constraints eliminated |
 | **Distribution Shift** | ✅ Solved (at computational cost) | On-policy training maintains data-policy alignment; demonstrably more stable than offline methods | Requires constant data regeneration and judge interaction—high computational expense |
 | **Reward Hacking** | ⚠️ Partially Addressed | DPO methods eliminate explicit reward model exploitation; reduced staleness | Gaming shifts to judge scoring functions; self-judgment creates feedback loops; policy still optimizes proxies |
