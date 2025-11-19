@@ -54,6 +54,8 @@ For 1 million preference pairs:
 - **Conservative estimate (at $0.30/pair):** $300,000
 - **Realistic estimate (at $1.50/pair):** $1,500,000
 
+We based these estimates on Lee et al. (2024).
+
 This doesn't include:
 - Project management and coordination overhead
 - Quality control and inter-annotator agreement verification
@@ -77,6 +79,7 @@ Estimating computational costs requires modeling the complete training pipeline.
 We first establish Meta's infrastructure efficiency by working backward from publicly reported data. The Llama 2 paper states that pre-training the 70B model consumed **1,720,320 GPU hours** and processed approximately **2 trillion tokens**.
 
 Using the standard FLOPs calculation for transformer training (6 FLOPs per token: 2 for forward pass, 4 for backward pass):
+Have a look at our technical appendix to see the other utility python functions.
 
 ```
 Total FLOPs = 2×10¹² tokens × 70×10⁹ parameters × 6
