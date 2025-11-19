@@ -34,6 +34,7 @@ profiles:
     label: E-mail Me
   - icon: brands/x
     url: https://x.com/jmamathsarr
+    label: Follow on X
   - icon: brands/linkedin
     url: https://www.linkedin.com/in/jean-michel-amath-sarr/
   - icon: brands/google-scholar
