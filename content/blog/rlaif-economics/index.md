@@ -499,13 +499,6 @@ sustained_perf = calculate_sustained_performance_tflops(
     total_flops, 1720320
 )
 # Result: ~135.6 TFLOPs/s
-
-# Estimate Self-Rewarding SFT cost
-sft_tokens = calculate_total_tokens(4830, 4096, 1)
-sft_flops = calculate_total_flops(sft_tokens, 70e9, 6)
-sft_hours = calculate_gpu_hours(sft_flops, sustained_perf)
-sft_cost = calculate_cost(sft_hours, 2.50)
-# Result: ~$42.54
 ```
 
 ---
