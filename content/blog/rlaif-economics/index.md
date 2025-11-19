@@ -93,7 +93,22 @@ The Self-Rewarding pipeline begins with supervised fine-tuning on 4,830 seed exa
 - 1,630 evaluation examples (EFT)
 
 Using 4,096 token sequences, 1 epoch, and $2.50/GPU-hour (AWS p4d.24xlarge pricing):
+```python
+def calculate_sft_cost(num_examples: int, 
+                        sequence_length: int, 
+                        epochs: int, 
+                        model_parameters: int, 
+                        sustained_performance_tflops: float, 
+                        price_per_hour: float) -> float:
+    """Calculates the estimated cost for SFT, including RS SFT."""
+    sft_tokens = calculate_total_tokens(num_examples, sequence_length, epochs)
+    sft_flops = calculate_total_flops(sft_tokens, model_parameters)
+    sft_gpu_hours = calculate_gpu_hours(sft_flops, sustained_performance_tflops)
+    return calculate_final_cost(sft_gpu_hours, price_per_hour)
+```
 
+
+Result
 ```
 SFT Tokens = 4,830 × 4,096 × 1 = 19.8M tokens
 SFT FLOPs = 19.8M × 70×10⁹ × 6 = 8.3×10¹⁸ FLOPs
@@ -124,6 +139,32 @@ For M2 (generating 6,942 preference pairs):
 
 For inference, we use 2 FLOPs per token (forward pass only):
 
+```python
+def calculate_forward_pass_cost(num_examples: int, 
+                                sequence_length: int, 
+                                model_parameters: int, 
+                                sustained_performance_tflops: float, 
+                                price_per_hour: float) -> float:
+    """Calculate cost for inference/forward pass operations."""
+    forward_pass_tokens = calculate_total_tokens(num_examples, sequence_length, 1)
+    forward_pass_flops = calculate_total_flops(forward_pass_tokens, 
+                                               model_parameters, 
+                                               flops_per_token_factor=2)
+    forward_pass_gpu_hours = calculate_gpu_hours(forward_pass_flops, 
+                                                  sustained_performance_tflops)
+    return calculate_final_cost(forward_pass_gpu_hours, price_per_hour)
+
+# Calculation
+inference_cost = calculate_forward_pass_cost(
+    num_examples=49077,
+    sequence_length=4096,
+    model_parameters=70e9,
+    sustained_performance_tflops=135.6,
+    price_per_hour=2.50
+)
+```
+
+Result
 ```
 Inference Tokens = 49,077 × 4,096 = 201M tokens
 Inference FLOPs = 201M × 70×10⁹ × 2 = 2.8×10¹⁹ FLOPs
@@ -140,7 +181,36 @@ DPO training is more expensive per token than standard SFT. The loss function re
 - **Total: 16 FLOPs per token**
 
 Training on M1's 3,964 preference pairs (M3 didn't produce new data):
+```python
+def calculate_dpo_cost(num_examples: int, 
+                       sequence_length: int, 
+                       epochs: int, 
+                       model_parameters: int, 
+                       sustained_performance_tflops: float, 
+                       price_per_hour: float, 
+                       num_rounds: int = 1) -> float:
+    """Calculate cost for DPO training."""
+    dpo_tokens = calculate_total_tokens(num_examples, sequence_length, epochs)
+    dpo_flops = calculate_total_flops(dpo_tokens, 
+                                      model_parameters, 
+                                      flops_per_token_factor=16)
+    dpo_flops *= num_rounds
+    dpo_gpu_hours = calculate_gpu_hours(dpo_flops, sustained_performance_tflops)
+    return calculate_final_cost(dpo_gpu_hours, price_per_hour)
 
+# Calculation
+dpo_cost = calculate_dpo_cost(
+    num_examples=3964,
+    sequence_length=4096,
+    epochs=1,
+    model_parameters=70e9,
+    sustained_performance_tflops=135.6,
+    price_per_hour=2.50,
+    num_rounds=1
+)
+```
+
+Result
 ```
 DPO Tokens = 3,964 × 4,096 × 1 = 16.2M tokens
 DPO FLOPs = 16.2M × 70×10⁹ × 16 = 1.8×10¹⁹ FLOPs
