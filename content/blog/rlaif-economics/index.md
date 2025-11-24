@@ -20,7 +20,7 @@ image:
 
 When we discuss RLHF's "scalability bottleneck" in abstract terms, the practical implications can seem nebulous. What does it actually cost to collect human preferences at scale? How much cheaper is synthetic data generation? This case study answers those questions with concrete numbers derived from two influential Meta AI papers.
 
-The verdict: **synthetic preference generation via RLAIF delivers an 11x cost reduction in the most conservative scenario**, rising to 58x in realistic cost environments. This isn't a marginal improvement—it's a fundamental shift in the economics of alignment.
+The verdict: **synthetic preference generation via RLAIF delivers an 11x cost reduction in the most conservative scenario**, rising to 26x in realistic cost environments. This isn't a marginal improvement—it's a fundamental shift in the economics of alignment.
 
 ---
 
@@ -43,16 +43,16 @@ While the absolute scale differs—1M versus ~11K preference pairs—the cost st
 Industry estimates for human preference annotation vary based on task complexity, annotator expertise, and geographic location. We use a conservative range:
 
 - **Lower bound: $0.30 per preference pair** (simple binary comparisons, non-expert annotators)
-- **Upper bound: $1.50 per preference pair** (complex evaluations, quality control, expert domains)
+- **Upper bound: $0.67 per preference pair** (complex evaluations, quality control, expert domains)
 
-These estimates align with reported costs from annotation platforms like Scale AI, where simple tasks cost $0.20-$0.50 per annotation, while expert review or multi-dimensional evaluation can exceed $2.00 per preference pair.
+These estimates align with reported costs from annotation platforms like Scale AI, where simple tasks cost $0.20-$0.50 per annotation. The upper bound of $0.67 is based on the empirical estimate from Lee et al. (2024).
 
 ### Llama 2's Human Preference Cost
 
 For 1 million preference pairs:
 
-- **Conservative estimate (at $0.30/pair):** $300,000
-- **Realistic estimate (at $1.50/pair):** $1,500,000
+- **Conservative estimate (at $0.30/pair)**: $300,000
+- **Realistic estimate (at $0.67/pair)**: $670,000
 
 We based these estimates on Lee et al. (2024).
 
@@ -239,8 +239,8 @@ TOTAL:                  $279.74
 
 | Method | Preference Pairs | Cost (Conservative) | Cost (Realistic) | Cost per Pair |
 |--------|------------------|---------------------|------------------|---------------|
-| **RLHF** (Llama 2) | 1,000,000 | $300,000 | $1,500,000 | $0.30 - $1.50 |
-| **RLAIF** (Self-Rewarding) | 10,906 | $3,272 | $16,359 | $0.30 - $1.50 (if human) |
+| **RLHF** (Llama 2) | 1,000,000 | $300,000 | $670,000 | $0.30 - $0.67 |
+| **RLAIF** (Self-Rewarding) | 10,906 | $3,272 | $7,307 | $0.30 - $0.67 (if human) |
 | **RLAIF** (Self-Rewarding) | 10,906 | **$280** | **$280** | **$0.026** |
 
 ### Cost Reduction Analysis
@@ -252,10 +252,10 @@ Comparing equivalent human costs for 10,906 preference pairs:
   - Synthetic cost: $280
   - **Reduction: 11.7x cheaper**
 
-- **Realistic scenario ($1.50/pair):**
-  - Human cost: $16,359
+- **Realistic scenario ($0.67/pair):**
+  - Human cost: $7,307
   - Synthetic cost: $280
-  - **Reduction: 58.4x cheaper**
+  - **Reduction: 26.1x cheaper**
 
 Even in the most conservative case, **synthetic preference generation delivers more than an order of magnitude cost reduction.**
 
@@ -263,7 +263,7 @@ Even in the most conservative case, **synthetic preference generation delivers m
 
 ## Beyond Direct Costs: The Full Economic Picture
 
-The $280 versus $3,272-$16,359 comparison understates synthetic alignment's advantage because it omits several critical factors:
+The $280 versus $3,272-$7,307 comparison understates synthetic alignment's advantage because it omits several critical factors:
 
 ### 1. Temporal Efficiency
 
@@ -292,7 +292,7 @@ RLAIF scales **computationally**: generating 100K preference pairs costs roughly
 
 For specialized domains (advanced mathematics, medical reasoning, legal analysis), human expert annotation costs escalate dramatically:
 
-- General annotators: $0.30-$1.50 per pair
+- General annotators: $0.30-$0.67 per pair
 - Domain experts: $5-$50 per pair
 - Rare specialists: $100+ per pair
 
@@ -419,7 +419,7 @@ Direct cost-per-pair comparison requires assuming comparable utility, which may 
 
 The numbers tell a clear story: **synthetic preference generation fundamentally changes the economics of alignment.**
 
-Where RLHF required six-figure budgets and month-long timelines, RLAIF delivers comparable or superior results for hundreds of dollars in compute costs and days of calendar time. The 11x-58x cost reduction isn't marginal—it's transformative.
+Where RLHF required six-figure budgets and month-long timelines, RLAIF delivers comparable or superior results for hundreds of dollars in compute costs and days of calendar time. The 11x-26x cost reduction isn't marginal—it's transformative.
 
 This isn't merely an efficiency improvement. It represents a qualitative shift in what's possible:
 
