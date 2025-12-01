@@ -51,7 +51,7 @@ highlight_name: true
 website: ""
 ---
 
-I engineer the synthetic data infrastructure that powers frontier language models.
+I build synthetic data infrastructure for training frontier language models at scale.
 
 As a Research Software Engineer at Google, I was a core contributor to Gemini's multilingual capabilities. I architected the end-to-end synthetic data pipeline that scaled instruction-following to 25 languages. My work focuses on the intersection of research velocity and production scale—building systems that decouple experimental logic from infrastructure to enable O(1) dataset scaling and 100% reproducibility.
 
