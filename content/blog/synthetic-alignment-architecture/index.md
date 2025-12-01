@@ -60,7 +60,7 @@ While the choice between RL-based and direct optimization paradigms provides the
 
 ### Factor 1: Prompt Generation Strategy
 
-<img src="prompt_generation_strategy.png" alt="Prompt Generation Strategy" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
+<img src="prompt_strategy.png" alt="Prompt Generation Strategy" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
 
 Where do the prompts come from? This seemingly simple question has profound implications. The diversity and relevance of prompts directly shape what behaviors the model learns to align, defining the effective scope of the alignment process.
 
@@ -74,7 +74,7 @@ The most ambitious approaches use **self-prompting**, where models generate thei
 
 ### Factor 2: Response Sampling Strategy
 
-<img src="response_sampling_strategy.png" alt="Response Sampling Strategy" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
+<img src="response_sampling.png" alt="Response Sampling Strategy" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
 
 Once you have prompts, how do you generate the candidate responses that will be judged and used for training? This choice affects both the quality distribution of your training data and the computational cost of the alignment process.
 
@@ -88,7 +88,7 @@ A third strategy employs **ensemble generation**, creating variation by sampling
 
 ### Factor 3: Actor-Judge-Refiner Configuration
 
-<img src="actor_judge_refiner_configuration.png" alt="Actor-Judge-Refiner Configuration" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
+<img src="actor_judge_refiner_refiner.png" alt="Actor-Judge-Refiner Configuration" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
 
 A fundamental architectural question: should you use a single model wearing multiple hats, or should you deploy specialized models for different roles in the pipeline? This choice affects both the elegance of the system and its ultimate capability ceiling.
 
@@ -120,7 +120,7 @@ More principled is **quality-based filtering** using learned RM either implicit 
 
 ### Factor 5: Preference Signal Source and Training Implementation
 
-<img src="preference_signal_source.png" alt="Preference Signal Source and Training Implementation" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
+<img src="preference_signal.png" alt="Preference Signal Source and Training Implementation" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
 
 Who or what judges quality, and how is that judgment woven into the training process? This factor is critical yet often conflated: the identity of the judge is separate from how its judgments are operationalized. For example, GPT-4 can serve as a judge, but its labels might either train a separate reward model that guides RL optimization, or feed directly into DPO for policy updates, same judge but completely different training implementations with distinct stability and scaling properties. Understanding both dimensions is essential for predicting a method's behavior.
 
@@ -138,7 +138,7 @@ The **emergent** approach (Yuan et al., 2025) uses the current policy checkpoint
 
 ### Factor 6: Nature of the Feedback Signal
 
-<img src="feedback_signal_nature.png" alt="Nature of the Feedback Signal" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
+<img src="feedback_signal.png" alt="Nature of the Feedback Signal" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
 
 Beyond who judges, what form does the judgment take? The information richness and format of feedback profoundly affects what the model can learn.
 
