@@ -51,13 +51,12 @@ highlight_name: true
 website: ""
 ---
 
-I build synthetic data infrastructure for training frontier language models at scale.
+I engineer the synthetic data infrastructure that powers frontier language models.
 
-As a Research Engineer at Google, I led the data generation pipeline that enhanced Gemini's multilingual instruction-following capabilities across 25 languages. This work focuses on creating high-quality synthetic instruction-response pairs that bridge the gap between research methods and production systems.
+As a Research Software Engineer at Google, I was a core contributor to Gemini's multilingual capabilities. I architected the end-to-end synthetic data pipeline that scaled instruction-following to 25 languages. My work focuses on the intersection of research velocity and production scale—building systems that decouple experimental logic from infrastructure to enable O(1) dataset scaling and 100% reproducibility.
 
-My expertise in synthetic data generation extends across the LLM training lifecycle: instruction-following (SFT), preference-based alignment, and increasingly, pretraining corpus design. I recently published a comprehensive research series on synthetic alignment, synthesizing insights from 20+ papers into actionable guidance for technical leaders evaluating RLHF alternatives.
+My technical expertise covers the generation of synthetic data for critical post-training phases: from Supervised Fine-Tuning (SFT) to creating data for preference learning. I view synthetic data not merely as a cost-saving measure, but as the key lever for post-training scaling. I have also synthesized the latest trends in synthetic alignment methods (including the limitations and alternatives to RLHF/RLAIF) in a comprehensive research series.
 
-I'm focused on synthetic data because the economics are inevitable: as frontier models approach human expert performance, the marginal cost of human feedback increasingly exceeds its marginal value. The next competitive advantage lies in architecting generation pipelines that maintain quality while eliminating human bottlenecks—a shift that's already reshaping how leading labs approach training.
+This engineering philosophy is grounded in my PhD research at Sorbonne University, where I developed methods using synthetic data to predict model behavior under distribution shift—principles I now apply to designing robust, large-scale production data systems.
 
-This builds on my doctoral research at Sorbonne University, where I developed methods for using synthetic data to predict model behavior under dataset shift—insights that directly inform how I design production pipelines today.
-If you're evaluating synthetic data strategies for production systems, I'd welcome the conversation.
+I write about the shift from human to synthetic labeling on jmamath.github.io.
