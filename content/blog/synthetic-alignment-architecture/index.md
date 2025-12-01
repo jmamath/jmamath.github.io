@@ -88,7 +88,7 @@ A third strategy employs **ensemble generation**, creating variation by sampling
 
 ### Factor 3: Actor-Judge-Refiner Configuration
 
-<img src="actor_judge_refiner_refiner.png" alt="Actor-Judge-Refiner Configuration" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
+<img src="actor_judge_refiner.png" alt="Actor-Judge-Refiner Configuration" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
 
 A fundamental architectural question: should you use a single model wearing multiple hats, or should you deploy specialized models for different roles in the pipeline? This choice affects both the elegance of the system and its ultimate capability ceiling.
 
@@ -100,7 +100,7 @@ The alternative deploys **separate specialized models** for different functions.
 
 ### Factor 4: Response Refinement and Filtering
 
-<img src="response_refinement_filtering.png" alt="Response Refinement and Filtering" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
+<img src="response_refinement.png" alt="Response Refinement and Filtering" style="filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important; width: 100%; height: auto;">
 
 Raw model outputs are rarely ideal training signals. How should responses be improved or filtered before they become training data? The spectrum ranges from no modification at all to sophisticated search-based refinement procedures.
 
