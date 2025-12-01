@@ -53,7 +53,7 @@ website: ""
 
 I build synthetic data infrastructure for training frontier language models at scale.
 
-As a Research Software Engineer at Google, I was a core contributor to Gemini's multilingual capabilities. I architected the end-to-end synthetic data pipeline that scaled instruction-following to 25 languages. My work focuses on the intersection of research velocity and production scale—building systems that decouple experimental logic from infrastructure to enable O(1) dataset scaling and 100% reproducibility.
+As a Research Software Engineer at Google, I was a core contributor to Gemini's multilingual capabilities. I architected the end-to-end synthetic data pipeline that scaled instruction-following to 25 languages. My work sits at the intersection of research velocity and production scale: I build systems that cleanly separate experimental logic from infrastructure, enabling constant-overhead dataset expansion and fully reproducible training.
 
 My technical expertise covers the generation of synthetic data for critical post-training phases: from Supervised Fine-Tuning (SFT) to creating data for preference learning. I view synthetic data not merely as a cost-saving measure, but as the key lever for post-training scaling. I have also synthesized the latest trends in synthetic alignment methods (including the limitations and alternatives to RLHF/RLAIF) in a comprehensive research series.
 
