@@ -51,12 +51,14 @@ highlight_name: true
 website: ""
 ---
 
-I build synthetic data infrastructure for training frontier language models at scale.
+I build infrastructure that accelerates research velocity at  Google.
 
-As a Research Software Engineer at Google, I was a core contributor to Gemini's multilingual capabilities. I architected the end-to-end synthetic data pipeline that scaled instruction-following to 25 languages. My work sits at the intersection of research velocity and production scale: I build systems that cleanly separate experimental logic from infrastructure, enabling constant-overhead dataset expansion and fully reproducible training.
+As a Research Engineer, I specialize in designing systems that eliminate bottlenecks in LLM development. My work spans two complementary domains: infrastructure engineering and synthetic data research.
 
-My technical expertise covers the generation of synthetic data for critical post-training phases: from Supervised Fine-Tuning (SFT) to creating data for preference learning. I view synthetic data not merely as a cost-saving measure, but as the key lever for post-training scaling. I have also synthesized the latest trends in synthetic alignment methods (including the limitations and alternatives to RLHF/RLAIF) in a comprehensive research series.
+On the infrastructure side, I architect systems that decouple experimental logic from execution, achieving step-change improvements in research velocity. Currently, I'm building multimodal tool use infrastructure for Vision-Language Models (PaliGemma, Gemini, Gemma), enabling reliable visual instruction-following across computer vision tasks. Previously, I delivered 10x experiment acceleration (from ~10 to ~100 experiments per quarter) through consolidated, configuration-driven frameworks and scaled data loading capacity 15x by building robust TFDS infrastructure now serving 60+ datasets. I build systems where adding new experiments, datasets, or models incurs constant overhead rather than linear complexity.
 
-This engineering philosophy is grounded in my PhD research at Sorbonne University, where I developed methods using synthetic data to predict model behavior under distribution shift—principles I now apply to designing robust, large-scale production data systems.
+On the research side, my expertise is synthetic data for post-training—specifically, how it scales to arbitrary domains when rigorous evaluation infrastructure enables tight iteration loops. As a core contributor to Gemini's multilingual capabilities, I architected the end-to-end synthetic data pipeline that scaled instruction-following across 25 languages. The quality came from making experiments cheap enough to run 50+ fine-tuning iterations, letting systematic hypothesis testing surface the right interventions rather than relying on manual curation. I cover generation for Supervised Fine-Tuning (SFT) and preference learning, with deep knowledge of synthetic alignment methods (including RLHF/RLAIF limitations and alternatives) synthesized in my research series.
 
-I write about the shift from human to synthetic labeling on jmamath.github.io.
+This dual expertise is grounded in my PhD research at Sorbonne University, where I developed methods using synthetic data to predict model behavior under distribution shift—principles I now apply to designing robust, production-scale systems that unblock researchers at frontier labs.
+
+I write about infrastructure design and the shift from human to synthetic labeling at jmamath.github.io.
