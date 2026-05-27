@@ -4,6 +4,10 @@ date: 2026-05-24
 summary: "Why I kept abandoning writing projects, and why I am building Distill to create a sustainable loop for research, memory, and public thinking."
 tags: ["AI", "Research", "Writing", "Building in Public", "Personal"]
 authors: ["admin"]
+image:
+  filename: "thumbnail.png"
+  focal_point: "Center"
+  preview_only: false
 ---
 
 *Why I kept abandoning writing projects, and why I am building Distill to create a sustainable loop for research, memory, and public thinking.*
