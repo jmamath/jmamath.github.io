@@ -14,7 +14,7 @@ marketing:
     site_type: Person
     local_business_type: ''
     org_name: ''
-    description: 'Jean Michel A. Sarr - Research Engineer at Google focused on building and improving cutting-edge generative models, with expertise in synthetic data for model fine-tuning and robustness.'
+    description: 'Jean Michel A. Sarr - Research Engineer focused on LLM systems, synthetic data, model fine-tuning, and robustness. Views are my own.'
     twitter: 'jmamathsarr'
   analytics:
     google_analytics: ''
