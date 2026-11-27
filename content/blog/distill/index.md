@@ -12,6 +12,8 @@ image:
 
 *Why I kept abandoning writing projects, and why I am building Distill to create a sustainable loop for research, memory, and public thinking.*
 
+> **Update, November 2026:** I have paused Distill to focus on research into how AI agents allocate compute on long tasks. More on that soon.
+
 I had a blog. Then a YouTube channel.
 
 I stopped the blog to finish my PhD thesis. I stopped the YouTube channel when I moved to Ghana for work. Both times, when I came back, the gap felt too wide to close. So I didn't.

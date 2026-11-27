@@ -22,7 +22,7 @@ role: Research Engineer
 organizations: []
 
 # Short bio (displayed in user profile at end of posts)
-bio: Research Engineer focused on LLM systems, synthetic data, and infrastructure for faster model iteration. Views are my own.
+bio: Research Engineer building evaluation and experimentation infrastructure for foundation models, and researching meta-reasoning for AI agents on long-horizon tasks. Views are my own.
 
 # Social Networking
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
@@ -49,16 +49,10 @@ highlight_name: true
 website: ""
 ---
 
-I build systems for LLM research: infrastructure, synthetic data pipelines, and evaluation loops that make model iteration faster and more reliable.
+I build evaluation and experimentation infrastructure for foundation models, and I research meta-reasoning for AI agents on long-horizon tasks.
 
-As a Research Engineer, I specialize in designing systems that eliminate bottlenecks in LLM development. My work spans two complementary domains: infrastructure engineering and synthetic data research.
+From 2022 to 2026 I was a Research Engineer at Google Research Africa. I owned my team's vision-language model evaluation pipeline, growing it from 4 to 60+ datasets and supporting 1,000+ experiments. I sped up TPU inference 3–8×, built synthetic instruction-tuning data for Gemini across 25 languages, and redesigned a coding-agent benchmark for memory and continual learning, adopted in the official Gemini benchmarking suite as of Q4 2026.
 
-On the infrastructure side, I architect systems that decouple experimental logic from execution, making it easier to run more experiments with less operational overhead. I build tools for model iteration, data loading, evaluation, and multimodal workflows where adding new experiments, datasets, or models incurs constant overhead rather than linear complexity.
+My current research is on meta-reasoning for agents: under a fixed compute budget, when should an agent keep refining its current approach, go back to an earlier one, or try something new?
 
-On the research side, my expertise is synthetic data for post-training, specifically how it scales to new domains when rigorous evaluation infrastructure enables tight iteration loops. I cover generation for Supervised Fine-Tuning (SFT) and preference learning, with deep knowledge of synthetic alignment methods, including RLHF/RLAIF limitations and alternatives, synthesized in my research series.
-
-This dual expertise is grounded in my PhD research at Sorbonne University, where I developed methods using synthetic data to predict model behavior under distribution shift—principles I now apply to designing robust, production-scale systems that unblock researchers at frontier labs.
-
-My writing here is personal and reflects my own views, not those of my employer.
-
-I write about infrastructure design and the shift from human to synthetic labeling at jmamath.github.io.
+I hold a PhD from Sorbonne University, where I used synthetic data to predict model behaviour under distribution shift, and I was a Google PhD Fellow.
