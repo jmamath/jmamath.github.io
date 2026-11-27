@@ -51,7 +51,7 @@ website: ""
 
 I build evaluation and experimentation infrastructure for foundation models, and I research meta-reasoning for AI agents on long-horizon tasks.
 
-From 2022 to 2026 I was a Research Engineer at Google Research Africa. I owned my team's vision-language model evaluation pipeline, growing it from 4 to 60+ datasets and supporting 1,000+ experiments. I sped up TPU inference 3–8×, built synthetic instruction-tuning data for Gemini across 25 languages, and redesigned a coding-agent benchmark for memory and continual learning, adopted in the official Gemini benchmarking suite as of Q4 2026.
+From 2022 to 2026 I was a Research Engineer at Google Research Africa. I owned my team's vision-language model evaluation pipeline, growing it from 4 to 60+ datasets and supporting 1,000+ experiments. I sped up TPU inference 8× end to end, built synthetic instruction-tuning data for Gemini across 25 languages, and redesigned a coding-agent benchmark for memory and continual learning, adopted in the official Gemini benchmarking suite as of Q4 2026.
 
 My current research is on meta-reasoning for agents: under a fixed compute budget, when should an agent keep refining its current approach, go back to an earlier one, or try something new?
 
