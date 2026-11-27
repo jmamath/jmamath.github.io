@@ -22,7 +22,7 @@ role: Research Engineer
 organizations: []
 
 # Short bio (displayed in user profile at end of posts)
-bio: Research Engineer building evaluation and experimentation infrastructure for foundation models, and researching meta-reasoning for AI agents on long-horizon tasks. Views are my own.
+bio: Research Engineer working on synthetic data and evaluation for foundation models, and researching meta-reasoning for AI agents on long-horizon tasks. Views are my own.
 
 # Social Networking
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
@@ -49,10 +49,10 @@ highlight_name: true
 website: ""
 ---
 
-I build evaluation and experimentation infrastructure for foundation models, and I research meta-reasoning for AI agents on long-horizon tasks.
+I'm a research engineer, and my work sits on both sides of that title.
 
-From 2022 to 2026 I was a Research Engineer at Google Research Africa. I owned my team's vision-language model evaluation pipeline, growing it from 4 to 60+ datasets and supporting 1,000+ experiments. I sped up TPU inference 8× end to end, built synthetic instruction-tuning data for Gemini across 25 languages, and redesigned a coding-agent benchmark for memory and continual learning, adopted in the official Gemini benchmarking suite as of Q4 2026.
+On the research side, I work on synthetic data and evaluation. At Google Research Africa, I led the synthetic instruction-tuning data pipeline for Gemini's multilingual capabilities; the data shipped in Gemini across 25 languages. I also redesigned a coding-agent benchmark to test whether agents keep learning and applying project rules across sessions; it was adopted in the official Gemini benchmarking suite in Q4 2026. This continues my PhD at Sorbonne University, where, as a Google PhD Fellow, I used synthetic data to predict model behaviour under distribution shift.
 
-My current research is on meta-reasoning for agents: under a fixed compute budget, when should an agent keep refining its current approach, go back to an earlier one, or try something new?
+On the engineering side, I owned my team's evaluation infrastructure for vision-language models: the config-driven experimentation framework behind 1,000+ experiments, the data pipeline that grew from 4 to 60+ datasets, and the efficiency work that raised accelerator utilization from 4% to 80% and made TPU inference 8× faster.
 
-I hold a PhD from Sorbonne University, where I used synthetic data to predict model behaviour under distribution shift, and I was a Google PhD Fellow.
+My current research is on meta-reasoning for long-horizon agents: under a fixed compute budget, when should an agent keep refining its current approach, go back to an earlier one, or try something new?
